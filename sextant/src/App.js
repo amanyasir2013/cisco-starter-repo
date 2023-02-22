@@ -13,7 +13,7 @@ function App() {
           <li>Dashboard</li>
           <li>Settings</li>
         </ul>
-        
+
         </div>
 
         
@@ -24,14 +24,14 @@ function App() {
         <div className='box-containers'>
 
           <div className='box'>
-            <h4>IP Address</h4>
+            <h4>User information</h4>
             <div className='top-border'/>
             <p>IP: 127.0.0.1</p>
 
           </div>
 
           <div className='box'>
-            <h4>Latency Data</h4>
+            <h4>Pylon Latency</h4>
             <div className='top-border'/>
             <p>Ping: 0ms</p>
           </div>
