@@ -1,6 +1,17 @@
 import './App.css';
+import React, { useState, useEffect } from "react";
 
 function App() {
+
+  const [getIpAddress, setIpAddress] = useState("");
+
+  useEffect(() => {
+    fetch("https://api64.ipify.org/?format=json")
+      .then((response) => response.json())
+      .then((data) => setIpAddress(data.ip));
+  }, []);
+
+
   return (
     <div className="App">
       <div className='header-banner'>
@@ -26,7 +37,7 @@ function App() {
           <div className='box'>
             <h4>User information</h4>
             <div className='top-border'/>
-            <p>IP: 127.0.0.1</p>
+            <p>IP: {getIpAddress}</p>
 
           </div>
 
