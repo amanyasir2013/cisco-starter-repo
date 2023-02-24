@@ -1,62 +1,44 @@
 import './App.css';
-import React, { useState, useEffect } from "react";
+import InfoCard from './components/info-box/infoBox'
+import NavBar from './components/navigation-bar/navbar';
+import useFetchIP from './util/useFetchIP';
 
 function App() {
 
-  const [getIpAddress, setIpAddress] = useState("");
-
-  useEffect(() => {
-    fetch("https://api64.ipify.org/?format=json")
-      .then((response) => response.json())
-      .then((data) => setIpAddress(data.ip));
-  }, []);
-
-
   return (
     <div className="App">
-      <div className='header-banner'>
-        <h1>Sextant</h1>
 
-        <div className='navbar'>
+      <NavBar/>
 
-        <ul>
-          <li>Home</li>
-          <li>Dashboard</li>
-          <li>Settings</li>
-        </ul>
+      <div className='Box-Container'>
 
-        </div>
+      <InfoCard
+        header="User Information"
+        lines={[
 
-        
+          
+          { text: "IPv4 Address", data: useFetchIP()[0], color: useFetchIP()[2] },
+          { text: "IPv6 Address", data: useFetchIP()[1], color: useFetchIP()[2] },
+        ]}
+      />
+      <InfoCard
+        header="Pylon Information"
+        lines=
+        {[
+          { text: "Line 1:", data: "Data 1" },
+        ]}
+      />
+
+    <InfoCard
+        header="Additional Data"
+        lines=
+        {[
+          { text: "Line 1:", data: "Data 1" },
+        ]}
+      />
       </div>
 
-      <div className='middle-section'>
-        
-        <div className='box-containers'>
 
-          <div className='box'>
-            <h4>User information</h4>
-            <div className='top-border'/>
-            <p>IP: {getIpAddress}</p>
-
-          </div>
-
-          <div className='box'>
-            <h4>Pylon Latency</h4>
-            <div className='top-border'/>
-            <p>Ping: 0ms</p>
-          </div>
-
-          <div className='box'>
-            <h4>Data Points</h4>
-            <div className='top-border'/>
-            <p>Null</p>
-          </div>
-
-        </div>
-
-      </div>
-      
     </div>
   );
 }

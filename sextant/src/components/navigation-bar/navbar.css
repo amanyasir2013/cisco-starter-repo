@@ -1,0 +1,29 @@
+.header-banner {
+    background-color: #101010;
+    width: 100%;
+    text-align: center;
+  
+    justify-self: flex-start;
+    align-self: flex-start;
+  }
+  
+  .navbar{
+    flex-direction: row;
+  }
+  
+  .navbar ul{
+    list-style: none;
+  }
+  
+  .navbar li{
+    display: inline;
+    margin: 0.5%;
+    padding: 1%;
+    border-radius: 10%;
+  }
+  
+  .navbar li:hover
+  {
+    background-color: #1d1d1d;
+    cursor:pointer;
+  }
